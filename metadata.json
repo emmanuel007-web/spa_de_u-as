@@ -1,0 +1,6 @@
+{
+  "name": "NuTaTaMo",
+  "description": "NuTaTaMo - Spa de uñas con servicios profesionales de manicura, pedicura, nail art, galería, reservas y chatbot de atención.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

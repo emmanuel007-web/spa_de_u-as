@@ -1,0 +1,27 @@
+<header class="header-wrapper">
+  <nav class="menu">
+    <div class="logo-wrapper">
+      <a routerLink="/" class="logo-link">
+        <span class="logo-sparkle">✨</span>
+        <div class="logo-titles">
+          <span class="logo-name">NuTaTaMo</span>
+          <span class="logo-subtitle">SPA & BEAUTY</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="nav-links-wrapper">
+      <ul class="submenu">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a></li>
+        <li><a routerLink="/servicio" routerLinkActive="active">Servicios</a></li>
+        <li><a routerLink="/galeria" routerLinkActive="active">Galería</a></li>
+        <li><a routerLink="/contact" routerLinkActive="active">Contacto</a></li>
+      </ul>
+    </div>
+    
+    <div class="header-actions">
+      <a routerLink="/reserva" class="btn-reserva-quick">Reservar</a>
+      <a routerLink="/iniciar-sesion" class="btn-login">Iniciar sesión</a>
+    </div>
+  </nav>
+</header>

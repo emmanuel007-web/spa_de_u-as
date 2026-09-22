@@ -1,0 +1,182 @@
+<div class="contact-hero">
+  <span class="contact-badge">ESTAMOS PARA ATENDERTE</span>
+  <h2>Contáctanos</h2>
+  <p>
+    ¿Tienes dudas, deseas una cotización especial o prefieres reservar por teléfono?
+    Ponte en contacto con nosotros y te responderemos con gusto.
+  </p>
+</div>
+
+<div class="info-contact-container">
+  <div class="contact-layout">
+    <!-- FORMULARIO -->
+    <div class="info-form"> 
+      <div class="form-header">
+        <span class="form-tag">CONSULTA DIRECTA</span>
+        <h2>Envíanos un mensaje</h2>
+        <p class="form-sub">Completa los campos a continuación y te responderemos a la brevedad.</p>
+      </div>
+
+      @if (enviado) {
+        <div class="mensaje-enviado-box">
+          <div class="enviado-icon">✓</div>
+          <h3>¡Mensaje Enviado con Éxito!</h3>
+          <p>
+            Gracias <strong>{{ nombreValue || 'por contactarnos' }}</strong>. Hemos recibido tu consulta sobre
+            <strong>{{ servicioValue }}</strong>. Te responderemos al correo o WhatsApp lo antes posible.
+          </p>
+          <button type="button" class="btn-nuevo" (click)="nuevoMensaje()">Enviar otra consulta</button>
+        </div>
+      }
+
+      @if (!enviado) {
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="forms">
+          <div class="form-row">
+            <div class="formulario-input">
+              <label for="nombre">Nombre completo *</label>
+              <input id="nombre" formControlName="nombre" type="text" placeholder="Ej. Valentina Morales" class="input"
+                [class.input-error]="contactForm.get('nombre')?.invalid && contactForm.get('nombre')?.touched">
+              @if (contactForm.get('nombre')?.invalid && contactForm.get('nombre')?.touched) {
+                <span class="error-text">Por favor ingresa tu nombre</span>
+              }
+            </div>
+
+            <div class="formulario-input">
+              <label for="celular">Teléfono / WhatsApp</label>
+              <input id="celular" formControlName="celular" type="text" placeholder="+57 324 865 5463" class="input">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="formulario-input">
+              <label for="correo">Correo Electrónico *</label>
+              <input id="correo" formControlName="email" type="email" placeholder="correo@ejemplo.com" class="input"
+                [class.input-error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+              @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                <span class="error-text">Ingresa un correo electrónico válido</span>
+              }
+            </div>
+
+            <div class="formulario-input">
+              <label for="servicio">Servicio de interés</label>
+              <select id="servicio" formControlName="servicio" class="input select-input">
+                <option value="Manicura Clásica">Manicura Clásica</option>
+                <option value="Manicura con Gel">Manicura Semipermanente (Gel)</option>
+                <option value="Uñas Acrílicas">Uñas Acrílicas Esculpidas</option>
+                <option value="Pedicura Clásica">Pedicura Clásica</option>
+                <option value="Pedicura Spa Relax">Pedicura Spa Relax</option>
+                <option value="Nail Art Creativo">Nail Art Creativo</option>
+                <option value="Paquete Completo">Paquete Spa Completo</option>
+                <option value="Eventos y Grupos">Eventos, Novias y Grupos</option>
+                <option value="Consulta General">Otra Consulta General</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="formulario-input full-width">
+            <label for="mensaje">Mensaje o especificaciones</label>
+            <textarea id="mensaje" formControlName="mensaje" placeholder="Cuéntanos sobre tu diseño preferido, dudas de horario o peticiones especiales..." class="textarea" rows="4"></textarea>
+            <div class="char-count">
+              <span>Máximo 500 caracteres</span>
+              <span>{{ mensajeLength }}/500</span>
+            </div>
+          </div>
+
+          <div class="contact-button-wrapper">
+            <button type="submit" class="button-submit">
+              <span>Enviar Mensaje</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+            </button>
+          </div>
+        </form>
+      }
+    </div>
+
+    <!-- INFORMACIÓN DE CONTACTO -->
+    <div class="info-con">
+      <div class="info-con-header">
+        <span class="form-tag">LOCAL & HORARIOS</span>
+        <h2>Información de Contacto</h2>
+      </div>
+
+      <div class="cards-info-list">
+        <div class="target-card">
+          <div class="target-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="target-info">
+            <h3>Dirección</h3>
+            <p>
+              Calle de la Belleza 123<br>
+              Centro Comercial Plaza Elegante<br>
+              Local 45, Madrid, España
+            </p>
+          </div>
+        </div>
+
+        <div class="target-card"> 
+          <div class="target-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="target-info">
+            <h3>Teléfono & WhatsApp</h3>
+            <p>+57 91 123 4567</p>
+            <span class="sub-target">Atención inmediata en horario comercial</span>
+          </div>
+        </div>
+
+        <div class="target-card">
+          <div class="target-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </div>
+          <div class="target-info">
+            <h3>Email</h3>
+            <p>info&#64;nutatamo.com</p>
+            <span class="sub-target">Respondemos en menos de 24 horas</span>
+          </div>
+        </div>
+
+        <div class="target-card">
+          <div class="target-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="target-info">
+            <h3>Horarios de Atención</h3>
+            <p><strong>Lunes a Viernes:</strong> 9:00 AM - 8:00 PM</p>
+            <p><strong>Sábados:</strong> 9:00 AM - 6:00 PM</p>
+            <p><strong>Domingos:</strong> 10:00 AM - 4:00 PM</p>
+          </div>
+        </div>
+
+        <!-- Social Media Box -->
+        <div class="social-box">
+          <h3>Síguenos en Redes Sociales</h3>
+          <div class="redes-sociales">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="X (Twitter)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Reserva Rápida Box -->
+        <div class="target-reserva-rapida">  
+          <div class="reserva-rapida-content">
+            <span class="rapida-badge">¿CITA URGENTE?</span>
+            <h3>Reserva Inmediata</h3>
+            <p>Agenda tu cita directamente desde nuestro sistema online o llámanos para verificar disponibilidad el mismo día.</p>
+            <div class="rapida-buttons">
+              <a routerLink="/reserva" class="btn-rapida-1">Reservar Cita Online</a>
+              <a href="tel:+57911234567" class="btn-rapida-2">Llamar Ahora</a>
+            </div>                                                                                                
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

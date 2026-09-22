@@ -1,0 +1,173 @@
+.header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 20px -2px rgba(92, 58, 103, 0.06);
+}
+
+.menu {
+  max-width: 1280px;
+  height: 80px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+}
+
+.logo-link:hover {
+  transform: scale(1.02);
+}
+
+.logo-sparkle {
+  font-size: 24px;
+  filter: drop-shadow(0 2px 6px rgba(212, 175, 55, 0.5));
+}
+
+.logo-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-name {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  background: linear-gradient(135deg, #5c3a67 0%, #8a5382 60%, #aa771c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+}
+
+.logo-subtitle {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: #aa771c;
+  margin-top: 2px;
+}
+
+.nav-links-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.submenu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.submenu li a {
+  display: inline-block;
+  color: #443249;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.submenu li a:hover {
+  color: #5c3a67;
+  background-color: #fbf5fa;
+}
+
+.submenu li a.active {
+  color: #5c3a67;
+  background-color: #f5edf3;
+  font-weight: 600;
+  box-shadow: inset 0 0 0 1px rgba(212, 175, 55, 0.4);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-reserva-quick {
+  text-decoration: none;
+  background: linear-gradient(135deg, #d4af37 0%, #f9ebaa 45%, #c59b27 100%);
+  color: #2a1532;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 9px 22px;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.btn-reserva-quick:hover {
+  background: linear-gradient(135deg, #e5be49 0%, #fff3bd 45%, #d4af37 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5);
+}
+
+.btn-login {
+  text-decoration: none;
+  background-color: #5c3a67;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 9px 22px;
+  border-radius: 9999px;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(92, 58, 103, 0.25);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-login:hover {
+  background-color: #4a2c54;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(92, 58, 103, 0.4);
+  border-color: #d4af37;
+}
+
+@media (max-width: 840px) {
+  .menu {
+    padding: 0 1rem;
+    height: auto;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .submenu {
+    gap: 4px;
+  }
+
+  .submenu li a {
+    padding: 6px 12px;
+    font-size: 0.88rem;
+  }
+}

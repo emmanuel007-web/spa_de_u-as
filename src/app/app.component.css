@@ -1,0 +1,52 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.home-container {
+  min-height: 100vh;                  /* Altura mínima = toda la pantalla */
+  width: 100vw;                       /* Ancho = toda la ventana */
+  padding: 2rem;
+  background-image: url('https://img.freepik.com/fotos-premium/estacion-pedicura-rosa-azul-4-sillas-salon-belleza_848676-6774.jpg');
+  background-size: cover;             /* Cubre todo el área */
+  background-position: center center; /* Centrado perfecto */
+  background-repeat: no-repeat;       /* No repetir */
+  background-attachment: fixed;       /* ¡CLAVE! Fondo fijo al hacer scroll */
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;                   /* Evita scroll innecesario */
+}
+
+/* Overlay oscuro para mejorar legibilidad del texto */
+.home-container::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);     /* Oscurece un poco */
+  backdrop-filter: blur(2px);         /* Suave desenfoque (opcional) */
+  z-index: 1;
+}
+
+/* Todo el contenido encima del overlay */
+.home-container > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Contenedor principal */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content{
+  min-height: 100vh;
+}

@@ -1,0 +1,84 @@
+<div class="galeria-header">
+  <span class="galeria-tag">PORTAFOLIO DE DISEÑOS</span>
+  <h2>Nuestros Trabajos</h2>
+  <p>
+    Descubre la belleza y creatividad de nuestros acabados. Cada servicio es realizado con técnica profesional,
+    materiales de máxima calidad y esterilización hospitalaria.
+  </p>
+</div>
+
+<div class="ordenamiento">
+  <div class="menu-galeria">
+    <button (click)="filterByGaleria('Todos')" [class.active]="selectedGaleria === 'Todos'">
+      Todos ({{ items.length }})
+    </button>
+    <button (click)="filterByGaleria('Nails-Art')" [class.active]="selectedGaleria === 'Nails-Art'">
+      ✨ Nail Art
+    </button>
+    <button (click)="filterByGaleria('Manicura')" [class.active]="selectedGaleria === 'Manicura'">
+      💅 Manicura
+    </button>
+    <button (click)="filterByGaleria('Pedicura')" [class.active]="selectedGaleria === 'Pedicura'">
+      👣 Pedicura
+    </button>
+  </div>
+
+  @if (filteredItems.length === 0) {
+    <div class="mensaje-vacio">
+      <p>No hay elementos disponibles en esta categoría.</p>
+    </div>
+  }
+
+  @if (filteredItems.length > 0) {
+    <div class="grid-galeria">
+      @for (item of filteredItems; track item.id) {
+        <div class="card-galeria" (click)="openModal(item)">
+          <div class="card-galeria-inner">
+            <img [src]="item.imagenUrl" [alt]="item.titulo" loading="lazy" />
+            <div class="card-overlay">
+              <span class="overlay-categoria">{{ item.categoria }}</span>
+              <span class="overlay-titulo">{{ item.titulo }}</span>
+              <span class="overlay-zoom">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></svg>
+                Ver diseño
+              </span>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>
+
+<!-- Modal / Lightbox -->
+@if (modalImage) {
+  <div class="modal-backdrop" (click)="closeModal()">
+    <div class="modal-card" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeModal()" aria-label="Cerrar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <div class="modal-img-wrapper">
+        <img [src]="modalImage.imagenUrl" [alt]="modalImage.titulo" />
+      </div>
+      <div class="modal-info">
+        <span class="modal-cat">{{ modalImage.categoria }}</span>
+        <h3 class="modal-title">{{ modalImage.titulo }}</h3>
+        <p class="modal-text">Realizado por nuestras estilistas en NuTaTaMo Spa con esmaltado semipermanente de larga fijación.</p>
+        <div class="modal-actions">
+          <a routerLink="/reserva" class="modal-btn-reserva" (click)="closeModal()">Quiero este diseño</a>
+        </div>
+      </div>
+    </div>
+  </div>
+}
+
+<div class="ordenamiento1">
+  <div class="galeria-conten">
+    <div class="inspira-icon">💖</div>
+    <h3>¿Te Inspiraste con Algún Diseño?</h3>
+    <p>Nuestro equipo puede recrear cualquiera de estos estilos o personalizar uno completamente único para ti.</p>
+    <div>
+      <a routerLink="/reserva" class="button-gale">Reservar Mi Diseño</a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,113 @@
+.formulario_reser {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.formulario_reser h2 {
+    color: #101827;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.formulario, .formulario2 {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.formulario-input {
+    flex: 1 1 45%;
+    min-width: 250px;
+}
+
+.formulario-input label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #101827;
+}
+
+.input, .input2, .input3 {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input:focus, .input2:focus, .input3:focus {
+    outline: none;
+    border-color: #fd3c7c;
+    box-shadow: 0 0 0 3px rgba(253, 60, 124, 0.1);
+}
+
+.input3 {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.text-xs {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-top: 0.25rem;
+}
+
+.contact-button {
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.button {
+    background-color: #fd3c7c;
+    color: white;
+    border: none;
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #ec6a94;
+}
+
+.button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.formulario-fecha {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    margin: 40px;
+}
+.input3{
+    width: 100%;
+    height: 15px;
+    border-radius: 15px;
+    border: gris claro;
+}
+.input4{
+    width: 150px;
+    height: 60px;
+    border-radius: 15px;
+    border: gris claro;
+
+}

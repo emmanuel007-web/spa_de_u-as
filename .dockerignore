@@ -1,0 +1,12 @@
+# ─────────────────────────────────────────────────────────────
+# Bella Nails Spa — .dockerignore del SPA (context del build front)
+# Evita mandar al daemon node_modules/dist (GB) y artefactos.
+# ─────────────────────────────────────────────────────────────
+node_modules
+dist
+out
+.angular
+.git
+.gitignore
+README.md
+.dockerignore
